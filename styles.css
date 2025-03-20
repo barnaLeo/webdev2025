@@ -1,17 +1,56 @@
+:root {
+  --primary-color: #333;
+  --secondary-color: #636a70;
+  --background-color: #f5f5f5;
+  --font-family: Arial, sans-serif;
+}
+
 /* Global Styles */
 html,
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  color: #333;
+  font-family: var(--font-family);
+  color: var(--primary-color);
   position: relative;
   min-height: 100vh;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
+/* Typography */
+h1 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+/* Layout */
+main {
+  padding: 20px;
+  line-height: 1.5;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--background-color);
+  padding: 10px;
+  font-size: 0.9em;
+  text-align: center;
+}
+
 /* Navbar Styles */
 .navbar {
-  background-color: #f5f5f5;
+  background-color: var(--background-color);
   overflow: hidden;
   display: flex;
   justify-content: space-between;
@@ -19,23 +58,11 @@ body {
   padding: 1rem;
 }
 
-.navbar a {
-  color: black;
-  text-decoration: none;
-  font-size: 1rem;
-}
-
-.navbar a:hover {
-  color: #ddd;
-}
-
-/* Logo */
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-/* Navigation Links */
 .nav-links {
   display: flex;
   margin: 0;
@@ -48,6 +75,15 @@ body {
 
 .nav-links a {
   margin-left: 1rem;
+  color: black; /* Specific color for nav links */
+}
+
+.nav-links a:hover {
+  color: #ddd;
+}
+
+.current-page {
+  font-weight: bold;
 }
 
 /* Hamburger Menu */
@@ -60,22 +96,65 @@ body {
 .hamburger span {
   width: 25px;
   height: 3px;
-  background-color: black;
+  background-color: var(--primary-color);
   margin: 2px 0;
 }
 
-/* Main Content */
-main {
-  padding: 20px;
+/* Lists */
+ul {
+  list-style-type: circle;
+  padding-left: 20px;
+  margin-bottom: 10px;
 }
 
-/* Footer */
-footer {
-  position: absolute;
-  bottom: 0;
+li {
+  margin-bottom: 20px;
+}
+
+ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* Buttons */
+.button,
+input[type="submit"] {
+  display: inline-block;
+  background-color: var(--secondary-color);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Forms */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: grid;
+  gap: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
   width: 100%;
-  background-color: #f5f5f5;
   padding: 10px;
+}
+
+input[type="submit"] {
+  width: 100%;
+}
+
+/* Form validation styles */
+input:invalid,
+textarea:invalid {
+  border: 2px solid var(--secondary-color);
+}
+
+input:focus:invalid,
+textarea:focus:invalid {
+  border: 2px solid red;
 }
 
 /* Responsive Design */
@@ -87,7 +166,7 @@ footer {
     position: absolute;
     top: 70px;
     left: 0;
-    background-color: #f5f5f5;
+    background-color: var(--background-color);
     padding: 20px 0;
   }
 
@@ -104,40 +183,14 @@ footer {
   }
 }
 
-main {
-    padding: 20px;
-    line-height: 1.5;
+@media screen and (max-width: 480px) {
+  form {
+    max-width: 100%;
   }
-  
-  h1 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-  }
-  
-  h2 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-  }
-  
-  ul {
-    list-style-type: circle;
-    padding-left: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .button {
-    display: inline-block;
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-  }
-  
-  footer {
-    background-color: #f5f5f5;
-    padding: 10px;
-    font-size: 0.9em;
-    text-align: center;
-  }
-  
+}
+
+#touchlink {
+  text-decoration: none;
+  color: rgb(28, 63, 95); /* General link color */
+  font-weight: bold;
+}
